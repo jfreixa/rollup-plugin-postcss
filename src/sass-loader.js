@@ -9,6 +9,8 @@ export default {
   name: 'sass',
   test: /\.s[ac]ss$/,
   async process({ code }) {
+    console.log(code)
+
     const sass = importCwd('node-sass')
     const res = await pify(sass.render.bind(sass))({
       ...this.options,
